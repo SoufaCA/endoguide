@@ -4,6 +4,8 @@ import com.eldorado.endoguide.R;
 import com.eldorado.endoguide.util.EGConstants;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -23,8 +25,8 @@ public class SplashActivity extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(!skippedSplashScreen) {
-                    goToMainActivity();
+                if (!skippedSplashScreen) {
+                    goToOnboardingActivity();
                 }
             }
         }, EGConstants.SPLASH_DISPLAY_LENGTH);
@@ -38,12 +40,24 @@ public class SplashActivity extends Activity {
         @Override
         public void onClick(View v) {
             skippedSplashScreen = true;
-            goToMainActivity();
+            goToOnboardingActivity();
         }
     };
 
-    protected void goToMainActivity() {
+    protected void goToOnboardingActivity() {
         /* Create an Intent that will start the Menu-Activity. */
+// Get the shared preferences
+        SharedPreferences preferences = getSharedPreferences(EGConstants.PREF_FILE_NAME, MODE_PRIVATE);
 
+// Check if onboarding_complete is false
+        //if (!preferences.getBoolean("onboarding_complete", false)) {
+            // Start the onboarding Activity
+            Intent onboarding = new Intent(this, OnboardingActivity.class);
+            startActivity(onboarding);
+
+            // Close the main Activity
+            finish();
+            return;
+      // }
     }
 }

@@ -3,4 +3,9 @@
     <string name="app_name">EndoGuide</string>
     <string name="title_activity_splash_screen">EndoGuide</string>
     <string name="title_activity_onboarding">EndoGuide</string>
+    <string name="welcomeTo">Welcome to</string>
+    <string name="drAbirEddhaouis">Dr. Abir Eddhaoui\'s</string>
+    <string name="done">Done</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
 </resources>
