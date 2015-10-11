@@ -1,8 +1,8 @@
 package com.eldorado.endoguide.fragments.onboarding;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,7 @@ import com.eldorado.endoguide.R;
 /**
  * Created by msi-pc on 10/11/2015.
  */
-public class OnboardingFragment1 extends Fragment {
+public class OnboardingFragment3 extends Fragment {
 
     @Nullable
     @Override
@@ -20,7 +20,7 @@ public class OnboardingFragment1 extends Fragment {
                              ViewGroup container, Bundle s) {
 
         return inflater.inflate(
-                R.layout.onboarding_screen1,
+                R.layout.onboarding_screen3,
                 container,
                 false
         );

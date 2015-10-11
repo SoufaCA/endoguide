@@ -8,4 +8,6 @@
     <string name="done">Done</string>
     <string name="next">Next</string>
     <string name="skip">Skip</string>
+    <string name="selectTheToothYouWant">Select the tooth you want:</string>
+    <string name="seeTheMostUsefulInformation">See the most useful information:</string>
 </resources>

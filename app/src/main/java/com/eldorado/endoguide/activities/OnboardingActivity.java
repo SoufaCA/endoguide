@@ -1,16 +1,21 @@
 package com.eldorado.endoguide.activities;
 
-import android.content.Intent;
+import android.animation.Animator;
+import android.annotation.TargetApi;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 
 import com.eldorado.endoguide.R;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment1;
+import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment2;
+import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment3;
 import com.eldorado.endoguide.util.EGConstants;
 import com.gc.materialdesign.views.ButtonFlat;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
@@ -29,19 +34,23 @@ public class OnboardingActivity extends FragmentActivity {
 
         setContentView(R.layout.activity_onboarding);
 
-        pager = (ViewPager)findViewById(R.id.pager);
-        indicator = (SmartTabLayout)findViewById(R.id.indicator);
-        skip = (ButtonFlat)findViewById(R.id.skip);
-        next = (ButtonFlat)findViewById(R.id.next);
+        pager = (ViewPager) findViewById(R.id.pager);
+        indicator = (SmartTabLayout) findViewById(R.id.indicator);
+        skip = (ButtonFlat) findViewById(R.id.skip);
+        next = (ButtonFlat) findViewById(R.id.next);
 
-        FragmentStatePagerAdapter adapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+        final FragmentStatePagerAdapter adapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
                 switch (position) {
-                    case 0 : return new OnboardingFragment1();
-                    case 1 : return new OnboardingFragment1();
-                    case 2 : return new OnboardingFragment1();
-                    default: return null;
+                    case 0:
+                        return new OnboardingFragment1();
+                    case 1:
+                        return new OnboardingFragment2();
+                    case 2:
+                        return new OnboardingFragment3();
+                    default:
+                        return null;
                 }
             }
 
@@ -50,6 +59,7 @@ public class OnboardingActivity extends FragmentActivity {
                 return 3;
             }
         };
+
 
         pager.setAdapter(adapter);
         indicator.setViewPager(pager);
@@ -96,9 +106,10 @@ public class OnboardingActivity extends FragmentActivity {
 
         // Set onboarding_complete to true
         preferences.edit()
-                .putBoolean("onboarding_complete",true).apply();
+                .putBoolean("onboarding_complete", true).apply();
 
         // Close the OnboardingActivity
         finish();
     }
+
 }
