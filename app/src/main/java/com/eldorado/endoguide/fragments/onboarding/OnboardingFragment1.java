@@ -1,5 +1,9 @@
 package com.eldorado.endoguide.fragments.onboarding;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,9 +30,17 @@ public class OnboardingFragment1 extends Fragment {
 
         ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
 
-        Animation slideIn = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
+        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(logo, "alpha", 1f, .3f);
+        fadeOut.setDuration(2000);
 
-        logo.startAnimation(slideIn);
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(logo, "alpha", .3f, 1f);
+        fadeIn.setDuration(2000);
+
+        final AnimatorSet mAnimationSet = new AnimatorSet();
+
+        mAnimationSet.play(fadeIn);
+
+        mAnimationSet.start();
 
         return rootView;
     }
