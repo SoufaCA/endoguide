@@ -1,16 +1,12 @@
 package com.eldorado.endoguide.activities;
 
-import android.animation.Animator;
-import android.annotation.TargetApi;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 
 import com.eldorado.endoguide.R;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment1;
