@@ -35,18 +35,18 @@ public class Position {
         this.index = index;
     }
 
-    public int getPosition() {
+    public int getNumber() {
 
         int result = 0;
 
         if (quadrant.equals(new Quadrant(EGConstants.MANDIBULAR_ARCADE, EGConstants.POSITION_LEFT))) {
-            result = 3;
+            result = 30 + index;
         } else if (quadrant.equals(new Quadrant(EGConstants.MANDIBULAR_ARCADE, EGConstants.POSITION_RIGHT))) {
-            result = 4;
+            result = 40 + index;
         } else if (quadrant.equals(new Quadrant(EGConstants.MAXILLAR_ARCADE, EGConstants.POSITION_LEFT))) {
-            result = 2;
+            result = 20 + index;
         } else if (quadrant.equals(new Quadrant(EGConstants.MAXILLAR_ARCADE, EGConstants.POSITION_RIGHT))) {
-            result = 1;
+            result = 10 + index;
         }
 
         return result;

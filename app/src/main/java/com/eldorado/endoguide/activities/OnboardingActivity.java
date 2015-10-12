@@ -1,6 +1,5 @@
 package com.eldorado.endoguide.activities;
 
-import android.animation.ObjectAnimator;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -15,8 +14,6 @@ import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment1;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment2;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment3;
 import com.eldorado.endoguide.util.EGConstants;
-import com.eldorado.endoguide.util.ZoomOutPageTransformer;
-import com.gc.materialdesign.views.ButtonFlat;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 
@@ -61,7 +58,7 @@ public class OnboardingActivity extends FragmentActivity {
 
 
         pager.setAdapter(adapter);
-        //pager.setPageTransformer(true, new ZoomOutPageTransformer());
+        //pager.setPageTransformer(true, new TholotisPageTranformer());
         indicator.setViewPager(pager);
 
         skip.setOnClickListener(new View.OnClickListener() {

@@ -23,9 +23,11 @@ public class DataGenerator {
         Quadrant leftMandibular = new Quadrant(EGConstants.MANDIBULAR_ARCADE, EGConstants.POSITION_LEFT);
         Quadrant rightMandibular = new Quadrant(EGConstants.MANDIBULAR_ARCADE, EGConstants.POSITION_RIGHT);
 
+        // 11
         Tooth tooth = new Tooth(new Position(rightMaxillar, 1), 1, 2, "central");
         teeth.add(tooth);
 
+        // 12
         tooth = new Tooth(new Position(rightMaxillar, 2), 1, 2, "lateral");
         teeth.add(tooth);
     }
