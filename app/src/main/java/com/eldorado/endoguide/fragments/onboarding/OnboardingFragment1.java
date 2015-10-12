@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.eldorado.endoguide.R;
 
@@ -29,16 +31,18 @@ public class OnboardingFragment1 extends Fragment {
         View rootView = inflater.inflate(R.layout.onboarding_screen1, container, false);
 
         ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
+        TextView welcome = (TextView) rootView.findViewById(R.id.welcomeTV);
+        TextView abir = (TextView) rootView.findViewById(R.id.abirTV);
+        TextView endoguide = (TextView) rootView.findViewById(R.id.endoguideTV);
 
-        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(logo, "alpha", 1f, .3f);
-        fadeOut.setDuration(2000);
-
-        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(logo, "alpha", .3f, 1f);
-        fadeIn.setDuration(2000);
+        ObjectAnimator logoFadeIn = ObjectAnimator.ofFloat(logo, "alpha", 0f, 1f).setDuration(3000);
+        ObjectAnimator welcomeFadeIn = ObjectAnimator.ofFloat(welcome, "alpha", 0f, 1f).setDuration(3000);
+        ObjectAnimator abirFadeIn = ObjectAnimator.ofFloat(abir, "alpha", 0f, 1f).setDuration(3000);
+        ObjectAnimator endoguideFadeIn = ObjectAnimator.ofFloat(endoguide, "alpha", 0f, 1f).setDuration(3000);
 
         final AnimatorSet mAnimationSet = new AnimatorSet();
 
-        mAnimationSet.play(fadeIn);
+        mAnimationSet.play(logoFadeIn).with(welcomeFadeIn).with(abirFadeIn).with(endoguideFadeIn);
 
         mAnimationSet.start();
 

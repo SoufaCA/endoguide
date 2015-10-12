@@ -1,5 +1,6 @@
 package com.eldorado.endoguide.activities;
 
+import android.animation.ObjectAnimator;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -7,12 +8,14 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.Button;
 
 import com.eldorado.endoguide.R;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment1;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment2;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment3;
 import com.eldorado.endoguide.util.EGConstants;
+import com.eldorado.endoguide.util.ZoomOutPageTransformer;
 import com.gc.materialdesign.views.ButtonFlat;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
@@ -21,8 +24,8 @@ public class OnboardingActivity extends FragmentActivity {
 
     private ViewPager pager;
     private SmartTabLayout indicator;
-    private ButtonFlat skip;
-    private ButtonFlat next;
+    private Button skip;
+    private Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,8 @@ public class OnboardingActivity extends FragmentActivity {
 
         pager = (ViewPager) findViewById(R.id.pager);
         indicator = (SmartTabLayout) findViewById(R.id.indicator);
-        skip = (ButtonFlat) findViewById(R.id.skip);
-        next = (ButtonFlat) findViewById(R.id.next);
+        skip = (Button) findViewById(R.id.skip);
+        next = (Button) findViewById(R.id.next);
 
         final FragmentStatePagerAdapter adapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
@@ -58,6 +61,7 @@ public class OnboardingActivity extends FragmentActivity {
 
 
         pager.setAdapter(adapter);
+        //pager.setPageTransformer(true, new ZoomOutPageTransformer());
         indicator.setViewPager(pager);
 
         skip.setOnClickListener(new View.OnClickListener() {

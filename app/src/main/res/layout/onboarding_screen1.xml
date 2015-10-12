@@ -17,6 +17,7 @@
         android:layout_weight="0.34" />
 
     <TextView
+        android:id="@+id/welcomeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/welcomeTo"
@@ -26,6 +27,7 @@
         android:textColor="#f3f3f3" />
 
     <TextView
+        android:id="@+id/abirTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="36sp"
@@ -35,6 +37,7 @@
         android:textColor="#f3f3f3" />
 
     <TextView
+        android:id="@+id/endoguideTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="36sp"

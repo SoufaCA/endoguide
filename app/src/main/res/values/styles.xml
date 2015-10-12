@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="NoActionBar" parent="@android:style/Theme.Holo.Light">
+    <style name="NoActionBar" parent="@android:style/Theme.Holo">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
     </style>
@@ -11,11 +11,11 @@
     </style>
 
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:fontFamily">roboto-light</item>
     </style>
 
     <style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
-        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:fontFamily">roboto-light</item>
     </style>
 
 </resources>
