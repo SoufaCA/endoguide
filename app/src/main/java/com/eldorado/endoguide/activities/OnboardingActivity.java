@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.eldorado.endoguide.R;
+import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment1;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment2;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment3;
@@ -85,6 +86,10 @@ public class OnboardingActivity extends FragmentActivity {
         indicator.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
+
+                OnboardingFragment fragment = (OnboardingFragment) adapter.instantiateItem(pager, position);
+                fragment.startAnimation();
+
                 if (position == 2) {
                     skip.setVisibility(View.GONE);
                     next.setText(getString(R.string.done));

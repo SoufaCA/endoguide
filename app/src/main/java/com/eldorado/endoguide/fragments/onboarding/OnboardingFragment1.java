@@ -21,15 +21,22 @@ import com.eldorado.endoguide.R;
 /**
  * Created by msi-pc on 10/11/2015.
  */
-public class OnboardingFragment1 extends Fragment {
+public class OnboardingFragment1 extends OnboardingFragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle s) {
 
-        View rootView = inflater.inflate(R.layout.onboarding_screen1, container, false);
+        rootView = inflater.inflate(R.layout.onboarding_screen1, container, false);
 
+        startAnimation();
+
+        return rootView;
+    }
+
+    @Override
+    public void startAnimation() {
         ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
         TextView welcome = (TextView) rootView.findViewById(R.id.welcomeTV);
         TextView abir = (TextView) rootView.findViewById(R.id.abirTV);
@@ -45,7 +52,5 @@ public class OnboardingFragment1 extends Fragment {
         mAnimationSet.play(logoFadeIn).with(welcomeFadeIn).with(abirFadeIn).with(endoguideFadeIn);
 
         mAnimationSet.start();
-
-        return rootView;
     }
 }
