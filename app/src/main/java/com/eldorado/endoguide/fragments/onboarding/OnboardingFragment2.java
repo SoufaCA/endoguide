@@ -37,9 +37,9 @@ public class OnboardingFragment2 extends OnboardingFragment {
         message.setTranslationY(-300);
 
         ObjectAnimator previewFadeIn = ObjectAnimator.ofFloat(preview, "alpha", 0f, 1f).setDuration(2000);
-        ObjectAnimator previewSlideIn = ObjectAnimator.ofFloat(preview, "translationY", 0, -300).setDuration(2000);
+        ObjectAnimator previewSlideIn = ObjectAnimator.ofFloat(preview, "translationY", 0, -rootView.getHeight() / 2).setDuration(2000);
         ObjectAnimator messageFadeIn = ObjectAnimator.ofFloat(message, "alpha", 0f, 1f).setDuration(2000);
-        ObjectAnimator messageSlideIn = ObjectAnimator.ofFloat(message, "translationY", -300, 0).setDuration(1000);
+        ObjectAnimator messageSlideIn = ObjectAnimator.ofFloat(message, "translationY", -rootView.getHeight() / 2, 0).setDuration(1000);
 
         final AnimatorSet mAnimationSet = new AnimatorSet();
 

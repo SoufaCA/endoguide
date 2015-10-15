@@ -10,4 +10,16 @@
     <string name="skip">Skip</string>
     <string name="selectTheToothYouWant">Select the tooth you want:</string>
     <string name="seeTheMostUsefulInformation">See the most useful information.</string>
+    <string name="maxillar">Maxillar</string>
+    <string name="mandibular">Mandibular</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="central">Central</string>
+    <string name="lateral">Lateral</string>
+    <string name="cuspid">Cuspid</string>
+    <string name="premolar_1">1st Premolar</string>
+    <string name="premolar_2">2nd Premolar</string>
+    <string name="molar_1">1st Molar</string>
+    <string name="molar_2">2nd Molar</string>
+    <string name="molar_3">3rd Molar</string>
 </resources>

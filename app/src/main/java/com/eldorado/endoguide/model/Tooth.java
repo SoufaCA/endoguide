@@ -1,5 +1,7 @@
 package com.eldorado.endoguide.model;
 
+import com.eldorado.endoguide.R;
+
 /**
  * Created by msi-pc on 10/11/2015.
  */
@@ -9,12 +11,17 @@ public class Tooth {
     private int minNumberRoots;
     private int maxNumberRoots;
     private String name;
+    private String generatedName;
 
     public Tooth(Position position, int minNumberRoots, int maxNumberRoots, String name) {
         this.position = position;
         this.minNumberRoots = minNumberRoots;
         this.maxNumberRoots = maxNumberRoots;
         this.name = name;
+    }
+
+    public String toString() {
+        return generatedName;
     }
 
     public Position getPosition() {
@@ -47,5 +54,13 @@ public class Tooth {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getGeneratedName() {
+        return generatedName;
+    }
+
+    public void setGeneratedName(String generatedName) {
+        this.generatedName = generatedName;
     }
 }
