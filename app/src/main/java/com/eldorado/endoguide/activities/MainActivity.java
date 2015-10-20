@@ -3,8 +3,11 @@ package com.eldorado.endoguide.activities;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -15,13 +18,17 @@ import com.eldorado.endoguide.controllers.DataGenerator;
 import com.eldorado.endoguide.model.Position;
 import com.eldorado.endoguide.model.Quadrant;
 import com.eldorado.endoguide.model.Tooth;
+import com.eldorado.endoguide.util.EGConstants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity {
 
     DataGenerator dataGenerator;
     List<Tooth> teeth;
+    Tooth defaultTooth;
+    Tooth selectedTooth;
 
 
     @Override
@@ -33,18 +40,44 @@ public class MainActivity extends Activity {
 
         dataGenerator = new DataGenerator();
         dataGenerator.generateTeeth();
-        teeth = dataGenerator.getTeeth();
+
+        teeth = new ArrayList<>();
+
+        defaultTooth = new Tooth();
+        defaultTooth.setGeneratedName(getStringResourceByName("select_one"));
+        teeth.add(defaultTooth);
+
+        teeth.addAll(dataGenerator.getTeeth());
+
         generateTeethNames();
 
         Spinner spinner = (Spinner) findViewById(R.id.teeth_spinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter adapter = new ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, teeth);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                selectedTooth = (Tooth) parentView.getSelectedItem();
+
+                if (!selectedTooth.equals(defaultTooth)) {
+                    goToToothActivity();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, teeth);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        spinner.setPrompt(getStringResourceByName("tooth_selection"));
     }
 
     public void startAnimation() {
@@ -74,7 +107,9 @@ public class MainActivity extends Activity {
 
     public void generateTeethNames() {
         for (Tooth tooth : teeth) {
-            tooth.setGeneratedName(getToothName(tooth));
+            if (!tooth.equals(defaultTooth)) {
+                tooth.setGeneratedName(getToothName(tooth));
+            }
         }
     }
 
@@ -82,5 +117,18 @@ public class MainActivity extends Activity {
         String packageName = getPackageName();
         int resId = getResources().getIdentifier(aString, "string", packageName);
         return getString(resId);
+    }
+
+    protected void goToToothActivity() {
+
+        Intent toothActivity = new Intent(this, ToothActivity.class);
+
+        toothActivity.putExtra("selectedTooth", selectedTooth);
+
+        startActivity(toothActivity);
+
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+        return;
     }
 }

@@ -1,27 +1,22 @@
 package com.eldorado.endoguide.fragments.onboarding;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.eldorado.endoguide.R;
+import com.eldorado.endoguide.fragments.BasicFragment;
 
 /**
  * Created by msi-pc on 10/11/2015.
  */
-public class OnboardingFragment1 extends OnboardingFragment {
+public class OnboardingFragment1 extends BasicFragment {
 
     @Nullable
     @Override

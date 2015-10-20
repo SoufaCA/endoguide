@@ -31,7 +31,10 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".activities.MainActivity"></activity>
+        <activity android:name=".activities.MainActivity" />
+        <activity
+            android:name=".activities.ToothActivity"
+            android:theme="@style/ActionBar"></activity>
     </application>
 
 </manifest>

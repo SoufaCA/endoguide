@@ -2,10 +2,12 @@ package com.eldorado.endoguide.model;
 
 import com.eldorado.endoguide.util.EGConstants;
 
+import java.io.Serializable;
+
 /**
  * Created by msi-pc on 10/11/2015.
  */
-public class Quadrant {
+public class Quadrant implements Serializable {
     private String arcade;
     private String position;
 

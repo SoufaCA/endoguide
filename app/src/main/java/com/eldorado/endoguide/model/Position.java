@@ -2,10 +2,12 @@ package com.eldorado.endoguide.model;
 
 import com.eldorado.endoguide.util.EGConstants;
 
+import java.io.Serializable;
+
 /**
  * Created by msi-pc on 10/11/2015.
  */
-public class Position {
+public class Position implements Serializable {
     private Quadrant quadrant;
     private int index;
 

@@ -1,4 +1,4 @@
-package com.eldorado.endoguide.fragments.onboarding;
+package com.eldorado.endoguide.fragments;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -16,7 +16,7 @@ import com.eldorado.endoguide.R;
 /**
  * Created by msi-pc on 10/11/2015.
  */
-public class OnboardingFragment extends Fragment {
+public class BasicFragment extends Fragment {
 
     protected View rootView;
 

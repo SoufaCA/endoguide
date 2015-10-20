@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.eldorado.endoguide.R;
-import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment;
+import com.eldorado.endoguide.fragments.BasicFragment;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment1;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment2;
 import com.eldorado.endoguide.fragments.onboarding.OnboardingFragment3;
@@ -88,7 +88,7 @@ public class OnboardingActivity extends FragmentActivity {
             @Override
             public void onPageSelected(int position) {
 
-                OnboardingFragment fragment = (OnboardingFragment) adapter.instantiateItem(pager, position);
+                BasicFragment fragment = (BasicFragment) adapter.instantiateItem(pager, position);
                 fragment.startAnimation();
 
                 if (position == 2) {
