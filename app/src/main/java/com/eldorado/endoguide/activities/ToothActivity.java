@@ -7,15 +7,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.TypefaceSpan;
 
 import com.eldorado.endoguide.R;
-import com.eldorado.endoguide.controllers.DataGenerator;
-import com.eldorado.endoguide.fragments.tooth.ToothFragment1;
+import com.eldorado.endoguide.fragments.tooth.ToothFragment;
 import com.eldorado.endoguide.model.Tooth;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ToothActivity extends ActionBarActivity implements
         ActionBar.TabListener {
@@ -23,13 +22,19 @@ public class ToothActivity extends ActionBarActivity implements
     private ViewPager pager;
     private SmartTabLayout indicator;
     private ActionBar actionBar;
-    private String[] tabs = {"General", "Roots", "Other"};
+    private List<String> tabs;
     private Tooth selectedTooth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tooth);
+
+        tabs = new ArrayList<>();
+
+        tabs.add(getString(R.string.general));
+        tabs.add(getString(R.string.roots));
+        tabs.add(getString(R.string.other));
 
         selectedTooth = (Tooth) getIntent().getSerializableExtra("selectedTooth");
 
@@ -42,11 +47,11 @@ public class ToothActivity extends ActionBarActivity implements
             public android.support.v4.app.Fragment getItem(int position) {
                 switch (position) {
                     case 0:
-                        return new ToothFragment1();
+                        return ToothFragment.newInstance(selectedTooth.getFirstDescriptions());
                     case 1:
-                        return new ToothFragment1();
+                        return ToothFragment.newInstance(selectedTooth.getSecondDescriptions());
                     case 2:
-                        return new ToothFragment1();
+                        return ToothFragment.newInstance(selectedTooth.getThirdDescriptions());
                     default:
                         return null;
                 }

@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="ToothDescription">
+        <attr name="descriptionImage" format="integer" />
+        <attr name="descriptionText" format="string" />
+    </declare-styleable>
+</resources>

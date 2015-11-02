@@ -27,4 +27,7 @@
     <string name="title_activity_tooth">ToothActivity</string>
     <string name="action_settings">Settings</string>
     <string name="tooth_details">Tooth Details</string>
+    <string name="general">General</string>
+    <string name="roots">Roots</string>
+    <string name="other">Other</string>
 </resources>

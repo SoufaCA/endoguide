@@ -1,8 +1,8 @@
 package com.eldorado.endoguide.model;
 
-import com.eldorado.endoguide.R;
-
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by msi-pc on 10/11/2015.
@@ -14,6 +14,9 @@ public class Tooth implements Serializable {
     private int maxNumberRoots;
     private String name;
     private String generatedName;
+    private List<Description> firstDescriptions;
+    private List<Description> secondDescriptions;
+    private List<Description> thirdDescriptions;
 
     public Tooth() {
     }
@@ -23,6 +26,9 @@ public class Tooth implements Serializable {
         this.minNumberRoots = minNumberRoots;
         this.maxNumberRoots = maxNumberRoots;
         this.name = name;
+        firstDescriptions = new ArrayList<>();
+        secondDescriptions = new ArrayList<>();
+        thirdDescriptions = new ArrayList<>();
     }
 
     public String toString() {
@@ -82,7 +88,13 @@ public class Tooth implements Serializable {
             return false;
         if (getName() != null ? !getName().equals(tooth.getName()) : tooth.getName() != null)
             return false;
-        return !(getGeneratedName() != null ? !getGeneratedName().equals(tooth.getGeneratedName()) : tooth.getGeneratedName() != null);
+        if (getGeneratedName() != null ? !getGeneratedName().equals(tooth.getGeneratedName()) : tooth.getGeneratedName() != null)
+            return false;
+        if (getFirstDescriptions() != null ? !getFirstDescriptions().equals(tooth.getFirstDescriptions()) : tooth.getFirstDescriptions() != null)
+            return false;
+        if (getSecondDescriptions() != null ? !getSecondDescriptions().equals(tooth.getSecondDescriptions()) : tooth.getSecondDescriptions() != null)
+            return false;
+        return !(getThirdDescriptions() != null ? !getThirdDescriptions().equals(tooth.getThirdDescriptions()) : tooth.getThirdDescriptions() != null);
 
     }
 
@@ -93,6 +105,33 @@ public class Tooth implements Serializable {
         result = 31 * result + getMaxNumberRoots();
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getGeneratedName() != null ? getGeneratedName().hashCode() : 0);
+        result = 31 * result + (getFirstDescriptions() != null ? getFirstDescriptions().hashCode() : 0);
+        result = 31 * result + (getSecondDescriptions() != null ? getSecondDescriptions().hashCode() : 0);
+        result = 31 * result + (getThirdDescriptions() != null ? getThirdDescriptions().hashCode() : 0);
         return result;
+    }
+
+    public List<Description> getFirstDescriptions() {
+        return firstDescriptions;
+    }
+
+    public void setFirstDescriptions(List<Description> firstDescriptions) {
+        this.firstDescriptions = firstDescriptions;
+    }
+
+    public List<Description> getSecondDescriptions() {
+        return secondDescriptions;
+    }
+
+    public void setSecondDescriptions(List<Description> secondDescriptions) {
+        this.secondDescriptions = secondDescriptions;
+    }
+
+    public List<Description> getThirdDescriptions() {
+        return thirdDescriptions;
+    }
+
+    public void setThirdDescriptions(List<Description> thirdDescriptions) {
+        this.thirdDescriptions = thirdDescriptions;
     }
 }

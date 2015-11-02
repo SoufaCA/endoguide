@@ -1,5 +1,7 @@
 package com.eldorado.endoguide.controllers;
 
+import com.eldorado.endoguide.R;
+import com.eldorado.endoguide.model.Description;
 import com.eldorado.endoguide.model.Position;
 import com.eldorado.endoguide.model.Quadrant;
 import com.eldorado.endoguide.model.Tooth;
@@ -24,7 +26,18 @@ public class DataGenerator {
         Quadrant rightMandibular = new Quadrant(EGConstants.MANDIBULAR_ARCADE, EGConstants.POSITION_RIGHT);
 
         // 11
-        teeth.add(new Tooth(new Position(rightMaxillar, 1), 1, 2, "central"));
+        Tooth tooth = new Tooth(new Position(rightMaxillar, 1), 1, 2, "central");
+        tooth.getFirstDescriptions().add(new Description("This is a First 1 long long long long long description", R.drawable.ic_logo));
+        tooth.getFirstDescriptions().add(new Description("This is a First 2 test description", R.drawable.ic_logo));
+        tooth.getFirstDescriptions().add(new Description("This is a First 3 test description", R.drawable.ic_logo));
+        tooth.getFirstDescriptions().add(new Description("This is a First 4 test description", R.drawable.ic_logo));
+
+        tooth.getSecondDescriptions().add(new Description("This is a Second 1 description", R.drawable.ic_logo));
+        tooth.getSecondDescriptions().add(new Description("This is a Second 2 test description", R.drawable.ic_logo));
+
+        tooth.getThirdDescriptions().add(new Description("This is a Third 1 description", R.drawable.ic_logo));
+        tooth.getThirdDescriptions().add(new Description("This is a Third 2 test description", R.drawable.ic_logo));
+        teeth.add(tooth);
         // 12
         teeth.add(new Tooth(new Position(rightMaxillar, 2), 1, 2, "lateral"));
         // 13
