@@ -4,12 +4,12 @@ package com.eldorado.endoguide.util;
  * Created by bouallegue on 5/18/2015.
  */
 public interface EGConstants {
-    public static int SPLASH_DISPLAY_LENGTH = 3000;
-    public static String PREF_FILE_NAME = "egpref";
-    public static String POSITION_RIGHT = "right";
-    public static String POSITION_LEFT = "left";
-    public static String MANDIBULAR_ARCADE = "mandibular";
-    public static String MAXILLAR_ARCADE = "maxillar";
-    public static int DEFAULT_INDEX = 1;
-    public static boolean ADS_ENABLED = true;
+    int SPLASH_DISPLAY_LENGTH = 3000;
+    String PREF_FILE_NAME = "egpref";
+    String POSITION_RIGHT = "right";
+    String POSITION_LEFT = "left";
+    String MANDIBULAR_ARCADE = "mandibular";
+    String MAXILLAR_ARCADE = "maxillar";
+    int DEFAULT_INDEX = 1;
+    boolean ADS_ENABLED = true;
 }
