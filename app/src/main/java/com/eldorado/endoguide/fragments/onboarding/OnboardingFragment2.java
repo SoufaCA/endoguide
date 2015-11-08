@@ -2,6 +2,8 @@ package com.eldorado.endoguide.fragments.onboarding;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.eldorado.endoguide.R;
 import com.eldorado.endoguide.fragments.BasicFragment;
@@ -24,15 +27,25 @@ public class OnboardingFragment2 extends BasicFragment {
                              ViewGroup container, Bundle s) {
 
         rootView = inflater.inflate(R.layout.onboarding_screen2, container, false);
+        VideoView videoView = (VideoView) rootView.findViewById(R.id.preview);
+        videoView.setVideoURI(Uri.parse("android.resource://" + getActivity().getPackageName() + "/" + R.raw.demo_1));
+
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mp.start();
+            }
+        });
 
         startAnimation();
+        videoView.start();
 
         return rootView;
     }
 
     @Override
     public void startAnimation() {
-        ImageView preview = (ImageView) rootView.findViewById(R.id.preview);
+        VideoView preview = (VideoView) rootView.findViewById(R.id.preview);
         TextView message = (TextView) rootView.findViewById(R.id.message);
         message.setTranslationY(-300);
 
@@ -43,7 +56,7 @@ public class OnboardingFragment2 extends BasicFragment {
 
         final AnimatorSet mAnimationSet = new AnimatorSet();
 
-        mAnimationSet.play(previewFadeIn).with(previewSlideIn).with(messageFadeIn).with(messageSlideIn);
+        mAnimationSet.play(previewFadeIn).with(messageFadeIn).with(messageSlideIn);
 
         mAnimationSet.start();
     }

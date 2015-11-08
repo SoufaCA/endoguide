@@ -3,9 +3,11 @@ package com.eldorado.endoguide.activities;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +21,8 @@ import com.eldorado.endoguide.model.Position;
 import com.eldorado.endoguide.model.Quadrant;
 import com.eldorado.endoguide.model.Tooth;
 import com.eldorado.endoguide.util.EGConstants;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +82,15 @@ public class MainActivity extends Activity {
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         spinner.setPrompt(getStringResourceByName("tooth_selection"));
+
+        if (EGConstants.ADS_ENABLED) {
+            final TelephonyManager tm = (TelephonyManager) getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
+            String deviceid = tm.getDeviceId();
+
+            AdView mAdView = (AdView) findViewById(R.id.main_activity_bottom_banner_adView);
+            AdRequest adRequest = new AdRequest.Builder().addTestDevice(deviceid).build();
+            mAdView.loadAd(adRequest);
+        }
     }
 
     public void startAnimation() {

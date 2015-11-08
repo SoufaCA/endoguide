@@ -2,33 +2,39 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:padding="16dp"
-    android:gravity="center_vertical|center_horizontal"
-    android:weightSum="1"
     android:background="@android:color/holo_blue_light"
-    android:orientation="vertical">
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:weightSum="1">
 
     <TextView
+        android:id="@+id/message"
+        style="@style/RobotoTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/selectTheToothYouWant"
-        android:textSize="48sp"
-        android:textColor="#f3f3f3"
-        android:id="@+id/message"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        style="@style/RobotoTextViewStyle" />
+        android:layout_alignParentTop="true"
+        android:text="@string/selectTheToothYouWant"
+        android:textColor="#f3f3f3"
+        android:textSize="48sp" />
 
-    <ImageView
-        android:layout_width="215dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/preview"
-        android:src="@drawable/ic_logo_white"
-        android:layout_weight="0.34"
-        android:layout_alignParentBottom="true"
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="800dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="54dp" />
+        android:layout_marginBottom="70dp"
+        android:layout_marginTop="150dp">
+
+        <VideoView
+            android:id="@+id/preview"
+            android:layout_alignParentTop="true"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"></VideoView>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

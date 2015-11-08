@@ -11,4 +11,5 @@ public interface EGConstants {
     public static String MANDIBULAR_ARCADE = "mandibular";
     public static String MAXILLAR_ARCADE = "maxillar";
     public static int DEFAULT_INDEX = 1;
+    public static boolean ADS_ENABLED = true;
 }

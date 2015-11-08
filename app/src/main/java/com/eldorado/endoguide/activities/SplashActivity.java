@@ -50,20 +50,22 @@ public class SplashActivity extends Activity {
 
     protected void goToOnboardingActivity() {
         /* Create an Intent that will start the Menu-Activity. */
-// Get the shared preferences
+        // Get the shared preferences
         SharedPreferences preferences = getSharedPreferences(EGConstants.PREF_FILE_NAME, MODE_PRIVATE);
 
-// Check if onboarding_complete is false
-        //if (!preferences.getBoolean("onboarding_complete", false)) {
-        // Start the onboarding Activity
-        Intent onboarding = new Intent(this, OnboardingActivity.class);
-        startActivity(onboarding);
+        Intent nextPage;
 
+        if (preferences.getBoolean("onboarding_complete", false)) {
+            nextPage = new Intent(this, OnboardingActivity.class);
+        } else {
+            nextPage = new Intent(this, MainActivity.class);
+        }
+
+        startActivity(nextPage);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
         // Close the main Activity
         finish();
         return;
-        // }
     }
 }

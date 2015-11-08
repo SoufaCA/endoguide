@@ -27,7 +27,7 @@ public class DataGenerator {
 
         // 11
         Tooth tooth = new Tooth(new Position(rightMaxillar, 1), 1, 2, "central");
-        tooth.getFirstDescriptions().add(new Description("This is a First 1 long long long long long description", R.drawable.ic_logo));
+        tooth.getFirstDescriptions().add(new Description("This is a First 1 long long long long long description", R.drawable.ic_11_1));
         tooth.getFirstDescriptions().add(new Description("This is a First 2 test description", R.drawable.ic_logo));
         tooth.getFirstDescriptions().add(new Description("This is a First 3 test description", R.drawable.ic_logo));
         tooth.getFirstDescriptions().add(new Description("This is a First 4 test description", R.drawable.ic_logo));
